@@ -1,0 +1,20 @@
+<h2 class="content-subhead">Search</h2>
+
+<form action="/search" method="get">
+  <input name="query" value="<%= params[:query] %>">
+  <button type="submit">Search</button>
+</form>
+
+<h2 class="content-subhead"><%="Results for '#{@search}'"%></h2>
+
+<%if @chapters_to_include.empty? %>
+  <p>Sorry, no matches were found.</p>
+<%end%>
+
+<ul class="pure-menu-list">
+  <% @chapters_to_include.each do |chapter| %>
+    <li class="pure-menu-item">
+      <a href="/chapters/<%=chapter%>" class="pure-menu-link"><%=@contents[chapter-1]%></a>
+    </li>
+  <% end %>
+</ul>

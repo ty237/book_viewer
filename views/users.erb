@@ -1,0 +1,11 @@
+<%if @user%>
+  <h2 class="content-subhead"><%=@user.capitalize%></h2>
+  <p>Email: <%=@user_data[:email] %></p>
+  <p><%=@user_data[:interests].join(", ") %></p>
+<%end%>
+
+<h2 class="content-subhead"> Users </h2>
+<% @data.each do |name, hash| %>
+  <p><% next if @user.to_s==name.to_s%></p>
+<a href="/users?name=<%=name%>" class="pure-menu-link"><%=name.capitalize%></a>
+<%end%>
