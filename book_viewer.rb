@@ -1,8 +1,7 @@
-# frozen_string_literal: true
-require "yaml"
+require 'yaml'
 
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'tilt/erubis'
 
 helpers do
@@ -61,8 +60,8 @@ get '/' do
   erb :home
 end
 
-get "/testing" do
-  @words = ["blubber", "beluga", "galoshes", "mukluk", "narwhal"]
+get '/testing' do
+  @words = %w[blubber beluga galoshes mukluk narwhal]
   erb :index
 end
 
